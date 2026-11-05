@@ -1,0 +1,75 @@
+/* CSS tiene dos partes, el selector (a qué elemento afecta la regla) y las propiedades (qué cambia)
+
+selector {
+    propiedad: valor;
+} */
+
+body{
+    background-color: #f8f4ea;
+    font-family: georgia, serif;
+    color: #1a1a1a;
+}
+
+h1{
+    color: #5b9b8e;
+    font-size: 2.5rem;
+}
+
+header{
+    padding: 1.5rem 2rem;
+    border-bottom: 2px solid #1a1a1a;
+}
+
+nav a{
+    color: #5b9b8e;  
+}
+
+main{
+    padding: 3rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/*Las reglas de abajo siempre tienen más peso que las de arriba si afectan a un mismo elemento*/
+
+/*Las clases inician con un puto y estan definidas en el index, sirven para dar formato a elementos especificos y no generalizarlos. Ejemplo: H3*/
+.metodo-titulo{ 
+    font-size: 1.1rem;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+    color: #5b9b8e;
+}
+
+.precio{
+    font-weight: bold;
+    color: #5b9b8e;
+}
+
+footer{
+    background-color: rgb(255, 249, 245);
+    border-bottom: 2px solid #1a1a1a;
+}
+
+#reservas{
+    align-items: center;
+    gap: 0.75rem;
+}
+
+#contador-tazas{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #5b9b8e;
+}
+
+#boton-reservar{
+    display: block;
+    margin-top: 1rem;
+    padding: 0.5rem 1.25rem;
+    background-color: #5b9b8e;
+    color: #f8f4ea;
+    border: none;
+    font-family: georgia, serif;
+    font-size: 1rem;
+    cursor: pointer;
+}

@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ookini (おおきに) - Café de Especialidad</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Shippori+Mincho:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mint: {
+                            50: '#F2FAF7',
+                            100: '#E2F5EE',
+                            200: '#C5ECDE',
+                            300: '#99DEC5',
+                            400: '#52C4A0',
+                            500: '#2DA88E',
+                            600: '#228874',
+                            700: '#1F6D5F',
+                        },
+                        coffee: {
+                            50: '#FAF6F0',
+                            100: '#F3EBE1',
+                            200: '#E5D5C3',
+                            300: '#CEB298',
+                            400: '#B08A6F',
+                            500: '#8C6239',
+                            600: '#704B2A',
+                            700: '#4A2E2B',
+                            800: '#341E1C',
+                        },
+                        cream: '#FAF8F5'
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Shippori Mincho"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .japanese-subtext {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .gradient-mint-coffee {
+            background: linear-gradient(135deg, rgba(226, 245, 238, 0.6) 0%, rgba(250, 248, 245, 0.9) 100%);
+        }
+    </style>
+</head>
+
+
+
+<body class="bg-cream text-coffee-800 font-sans antialiased selection:bg-mint-200 selection:text-coffee-700">
+
+    <!-- Navegación -->
+    <header
+        class="fixed top-0 left-0 w-full bg-cream/90 backdrop-blur-md z-40 border-b border-mint-100 transition-all duration-300"
+        id="navbar">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div
+                    class="w-10 h-10 rounded-full bg-mint-500 text-white flex items-center justify-center font-serif text-xl font-bold shadow-md shadow-mint-500/20 group-hover:scale-105 transition-transform">
+                    大
+                </div>
+                <div>
+                    <span
+                        class="font-serif text-2xl font-bold text-coffee-700 tracking-wide block leading-none">Ookini</span>
+                    <span class="text-[10px] tracking-widest uppercase text-mint-600 font-semibold block mt-0.5">Café de
+                        Especialidad</span>
+                </div>
+            </a>
+
+            <!-- Menú Desktop -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-coffee-600">
+                <a href="#inicio" class="hover:text-mint-600 transition-colors">Inicio</a>
+                <a href="#historia" class="hover:text-mint-600 transition-colors">El Nombre</a>
+                <a href="#menu" class="hover:text-mint-600 transition-colors">Menú</a>
+                <a href="#estudiantes" class="hover:text-mint-600 transition-colors">Zona Estudiantil</a>
+                <a href="#contacto" class="hover:text-mint-600 transition-colors">Ubicación</a>
+            </nav>
+
+            <!-- Botón CTA Pedido -->
+            <div class="hidden md:block">
+                <a href="https://wa.me/522721234567?text=Hola!%20Me%20gustar%C3%ADa%20hacer%20un%20pedido%20en%20Ookini"
+                    target="_blank"
+                    class="inline-flex items-center gap-2 bg-mint-500 hover:bg-mint-600 text-white font-medium px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all text-sm">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>Hacer Pedido</span>
+                </a>
+            </div>
+
+            <!-- Botón Menú Móvil -->
+            <button id="mobile-menu-btn"
+                class="md:hidden text-coffee-700 p-2 rounded-lg hover:bg-mint-100/50 focus:outline-none"
+                aria-label="Abrir Menú">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-b border-mint-100 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="mobile-link block py-2 px-3 text-coffee-700 hover:bg-mint-50 rounded-lg">Inicio</a>
+            <a href="#historia" class="mobile-link block py-2 px-3 text-coffee-700 hover:bg-mint-50 rounded-lg">El
+                Nombre</a>
+            <a href="#menu" class="mobile-link block py-2 px-3 text-coffee-700 hover:bg-mint-50 rounded-lg">Menú</a>
+            <a href="#estudiantes" class="mobile-link block py-2 px-3 text-coffee-700 hover:bg-mint-50 rounded-lg">Zona
+                Estudiantil</a>
+            <a href="#contacto"
+                class="mobile-link block py-2 px-3 text-coffee-700 hover:bg-mint-50 rounded-lg">Ubicación</a>
+            <a href="https://wa.me/522721234567?text=Hola!%20Me%20gustar%C3%ADa%20hacer%20un%20pedido%20en%20Ookini"
+                target="_blank"
+                class="w-full mt-2 inline-flex items-center justify-center gap-2 bg-mint-500 text-white font-medium px-4 py-2.5 rounded-full">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>Pedir por WhatsApp</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section id="inicio" class="relative min-h-[88vh] flex items-center gradient-mint-coffee overflow-hidden py-16">
+            <div
+                class="absolute inset-0 opacity-10 bg-[radial-gradient(#2DA88E_1px,transparent_1px)] [background-size:16px_16px]">
+            </div>
+
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+                <div class="grid md:grid-cols-12 gap-12 items-center">
+
+                    <div class="md:col-span-7 space-y-6">
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-mint-100 border border-mint-200 text-mint-700 text-xs font-semibold tracking-wide uppercase">
+                            <span class="w-2 h-2 rounded-full bg-mint-500 animate-pulse"></span>
+                            Tu rincón cálido en Huiloapan
+                        </div>
+
+                        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-coffee-800 leading-tight">
+                            Café de especialidad,<br>
+                            <span class="text-mint-600 font-normal italic">calidez</span> que conecta.
+                        </h1>
+
+                        <p class="text-coffee-600 text-base sm:text-lg max-w-xl font-normal leading-relaxed">
+                            Un espacio acogedor e inspirador pensado para tus jornadas de estudio, charlas entre amigos
+                            y momentos de calma acompañados de la mejor extracción.
+                        </p>
+
+                        <!-- CTA Group -->
+                        <div class="pt-2 flex flex-wrap gap-4 items-center">
+                            <a href="#menu"
+                                class="bg-coffee-700 hover:bg-coffee-800 text-white font-medium px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all flex items-center gap-2 text-sm sm:text-base">
+                                <i data-lucide="coffee" class="w-5 h-5"></i>
+                                Ver Menú Completo
+                            </a>
+                            <a href="#estudiantes"
+                                class="bg-mint-100 hover:bg-mint-200 text-mint-700 border border-mint-300 font-medium px-6 py-3 rounded-full transition-all flex items-center gap-2 text-sm sm:text-base">
+                                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                                Combo Estudiantil $55
+                            </a>
+                        </div>
+
+                        <!-- Highlights Quick Badges -->
+                        <div class="pt-6 border-t border-coffee-200/60 grid grid-cols-3 gap-4 text-center sm:text-left">
+                            <div class="space-y-1">
+                                <div class="flex items-center justify-center sm:justify-start gap-1.5 text-mint-600">
+                                    <i data-lucide="wifi" class="w-4 h-4"></i>
+                                    <span class="font-semibold text-xs text-coffee-800">Wi-Fi Gratis</span>
+                                </div>
+                                <p class="text-[11px] text-coffee-500">Alta velocidad para estudiar</p>
+                            </div>
+                            <div class="space-y-1">
+                                <div class="flex items-center justify-center sm:justify-start gap-1.5 text-mint-600">
+                                    <i data-lucide="zap" class="w-4 h-4"></i>
+                                    <span class="font-semibold text-xs text-coffee-800">Conectores</span>
+                                </div>
+                                <p class="text-[11px] text-coffee-500">En cada mesa para tu laptop</p>
+                            </div>
+                            <div class="space-y-1">
+                                <div class="flex items-center justify-center sm:justify-start gap-1.5 text-mint-600">
+                                    <i data-lucide="heart" class="w-4 h-4"></i>
+                                    <span class="font-semibold text-xs text-coffee-800">Ambiente</span>
+                                </div>
+                                <p class="text-[11px] text-coffee-500">Tranquilo y acogedor</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Card / Image Mock -->
+                    <div class="md:col-span-5 relative flex justify-center">
+                        <div
+                            class="relative w-full max-w-sm aspect-[4/5] bg-white p-4 rounded-3xl shadow-xl border border-mint-100 transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                            <div
+                                class="w-full h-full rounded-2xl bg-gradient-to-br from-coffee-100 to-mint-50 flex flex-col justify-between p-6 relative overflow-hidden">
+                                <div
+                                    class="absolute -right-6 -bottom-6 w-32 h-32 bg-mint-200 rounded-full blur-2xl opacity-60">
+                                </div>
+
+                                <div class="flex justify-between items-start">
+                                    <span
+                                        class="bg-white/80 backdrop-blur text-coffee-700 text-xs px-3 py-1 rounded-full font-serif font-semibold">おおきに</span>
+                                    <span class="text-mint-600"><i data-lucide="sparkles" class="w-5 h-5"></i></span>
+                                </div>
+
+                                <div class="text-center my-auto space-y-3">
+                                    <div
+                                        class="w-20 h-20 mx-auto rounded-full bg-white shadow-inner flex items-center justify-center text-mint-500">
+                                        <i data-lucide="cup-soda" class="w-10 h-10"></i>
+                                    </div>
+                                    <h3 class="font-serif text-2xl font-bold text-coffee-800">El café perfecto para tu
+                                        día</h3>
+                                    <p class="text-xs text-coffee-600">Preparado con granos seleccionados y métodos
+                                        artesanales.</p>
+                                </div>
+
+                                <div
+                                    class="bg-white/90 backdrop-blur rounded-xl p-3 flex items-center justify-between text-xs font-medium text-coffee-700 border border-coffee-100">
+                                    <span>Pinos #9, Huiloapan</span>
+                                    <span class="text-mint-600 flex items-center gap-1"><i data-lucide="clock"
+                                            class="w-3.5 h-3.5"></i> Abierto hoy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Historia: El Nombre "Ookini" -->
+        <section id="historia" class="py-20 bg-white relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div
+                    class="bg-coffee-50/50 rounded-3xl p-8 sm:p-12 border border-coffee-100 relative overflow-hidden shadow-sm">
+                    <div
+                        class="absolute -right-10 -top-10 text-coffee-200/30 font-serif text-9xl select-none font-bold pointer-events-none">
+                        おおきに
+                    </div>
+
+                    <div class="relative z-10 max-w-2xl">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-mint-600 font-serif text-xl">おおきに</span>
+                            <span class="h-px w-12 bg-mint-300"></span>
+                            <span class="text-xs font-bold tracking-widest text-coffee-500 uppercase">Nuestra
+                                Esencia</span>
+                        </div>
+
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-coffee-800 mb-6">
+                            ¿Por qué nos llamamos <span class="text-mint-600">Ookini</span>?
+                        </h2>
+
+                        <p class="text-coffee-700 text-base sm:text-lg leading-relaxed mb-6 font-light">
+                            En el dialecto tradicional de Kansai (Osaka y Kioto), <strong
+                                class="font-semibold text-coffee-800">"Ookini" (おおきに)</strong> es una palabra cálida que
+                            significa un profundo y sincero <em class="text-mint-700 font-normal">"Muchas Gracias"</em>.
+                        </p>
+
+                        <p class="text-coffee-600 text-sm sm:text-base leading-relaxed mb-6">
+                            Elegimos este nombre para expresar nuestra gratitud diaria hacia los estudiantes, vecinos y
+                            amigos del barrio que hacen de nuestro café su segundo hogar. Para nosotros, cada taza
+                            servida es un gesto de hospitalidad, respecto y agradecimiento por tu compañía.
+                        </p>
+
+                        <div
+                            class="inline-flex items-center gap-3 text-coffee-800 font-serif font-semibold text-sm bg-white px-4 py-2 rounded-xl border border-coffee-100 shadow-sm">
+                            <i data-lucide="smile" class="w-4 h-4 text-mint-500"></i>
+                            <span>Hospitalidad, comunidad y gratitud en cada detalle.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Menú Interactivo -->
+        <section id="menu" class="py-20 bg-cream">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <!-- Encabezado de Sección -->
+                <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                    <span class="text-mint-600 text-xs font-bold tracking-widest uppercase">Nuestra Carta</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-coffee-800">Menú de Especialidad</h2>
+                    <p class="text-coffee-600 text-sm sm:text-base">Selección de bebidas artesanales y lonches recién
+                        hechos para acompañar tu día.</p>
+                </div>
+
+                <!-- Botones de Pestaña / Filtros -->
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10" id="menu-tabs">
+                    <button data-target="cafes"
+                        class="tab-btn active bg-coffee-700 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-sm">
+                        Cafés de Especialidad
+                    </button>
+                    <button data-target="tes"
+                        class="tab-btn bg-white hover:bg-mint-50 text-coffee-700 border border-coffee-200/80 px-5 py-2.5 rounded-full text-sm font-medium transition-all">
+                        Tés e Infusiones
+                    </button>
+                    <button data-target="comida"
+                        class="tab-btn bg-white hover:bg-mint-50 text-coffee-700 border border-coffee-200/80 px-5 py-2.5 rounded-full text-sm font-medium transition-all">
+                        Lonches y Sandwiches
+                    </button>
+                    <button data-target="metodos"
+                        class="tab-btn bg-white hover:bg-mint-50 text-coffee-700 border border-coffee-200/80 px-5 py-2.5 rounded-full text-sm font-medium transition-all">
+                        Métodos de Extracción
+                    </button>
+                </div>
+
+                <!-- Contenidos de Menú -->
+                <div class="min-h-[320px]">
+
+                    <!-- Categoría 1: Cafés -->
+                    <div id="cafes" class="menu-category grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Item Café 1 -->
+                        <div
+                            class="bg-white p-6 rounded-2xl border border-coffee-100 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-serif text-lg font-bold text-coffee-800">Café Americano</h3>
+                                    <span class="text-mint-600 font-bold text-lg">$35</span>
+                                </div>
+                                <p class="text-xs text-coffee-500 leading-relaxed">Espresso doble diluido en agua
+                                    caliente. Limpio, balanceado y con notas acarameladas.</p>
+                            </div>
+                            <div
+                                class="mt-4 pt-3 border-t border-dashed border-coffee-100 flex items-center gap-2 text-[11px] text-coffee-400">
+                                <i data-lucide="coffee" class="w-3.5 h-3.5 text-mint-500"></i>
+                                <span>Disponible Frío / Caliente</span>
+                            </div>
+                        </div>
+
+                        <!-- Item Café 2 -->
+                        <div
+                            class="bg-white p-6 rounded-2xl border border-coffee-100 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-serif text-lg font-bold text-coffee-800">Capuchino</h3>
+                                    <span class="text-mint-600 font-bold text-lg">$45</span>
+                                </div>
+                                <p class="text-xs text-coffee-500 leading-relaxed">Balance perfecto entre espresso,
+                                    leche cremada al vapor y una fina capa de microespuma sedosa.</p>
+                            </div>
+                            <div
+                                class="mt-4 pt-3 border-t border-dashed border-coffee-100 flex items-center gap-2 text-[11px] text-coffee-400">
+                                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-mint-500"></i>
+                                <span>Opción leche entera o vegetal</span>
+                            </div>
+                        </div>
+
+                        <!-- Item Café 3 -->
+                        <div
+                            class="bg-white p-6 rounded-2xl border border-coffee-100 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-serif text-lg font-bold text-coffee-800">Café Moka</h3>
+                                    <span class="text-mint-600 font-bold text-lg">$50</span>
+                                </div>
+                                <p class="text-xs text-coffee-500 leading-relaxed">Deliciosa combinación de espresso con
+                                    cacao artesanal de origen y leche suavemente vaporizada.</p>
+                            </div>
+                            <div
+                                class="mt-4 pt-3 border-t border-dashed border-coffee-100 flex items-center gap-2 text-[11px] text-coffee-400">
+                                <i data-lucide="heart" class="w-3.5 h-3.5 text-mint-500"></i>
+                                <span>El favorito para las tardes de estudio</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categoría 2: Tés e Infusiones -->
+                    <div id="tes" class="menu-category hidden grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Item Té 1 -->
+                        <div
+                            class="bg-white p-6 rounded-2xl border border-coffee-100 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-serif text-lg font-bold text-coffee-800">Té de Menta Fresca</h3>
+                                    <span class="text-mint-600 font-bold text-lg">$35</span>
+                                </div>
+                                <p class="text-xs text-coffee-500 leading-relaxed">Infusión digestiva y revitalizante
+                                    con hojas de menta natural. Sabor limpio y aromático.</p>
+                            </div>
+                            <div
+                                class="mt-4 pt-3 border-t border-dashed border-coffee-100 flex items-center gap-2 text-[11px] text-coffee-400">
+                                <i data-lucide="leaf" class="w-3.5 h-3.5 text-mint-500"></i>
+                                <span>100% Orgánico y Refrescante</span>
+                            </div>
+                        </div>
+
+                        <!-- Item Té 2 -->
+                        <div
+                            class="bg-white p-6 rounded-2xl border border-coffee-100 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-serif text-lg font-bold text-coffee-800">Infusión Frutos Rojos</h3>
+                                    <span class="text-mint-600 font-bold text-lg">$40</span>
+                                </div>
+                                <p class="text-xs text-coffee-500 leading-relaxed">Mezcla frutal de frambuesa, arándanos
+                                    y flor de hibisco. Un toque dulce y ligeramente ácido.</p>
+                            </div>
+                            <div
+                                class="mt-4 pt-3 border-t border-dashed border-coffee-100 flex items-center gap-2 text-[11px] text-coffee-400">
+                                <i data-lucide="droplet" class="w-3.5 h-3.5 text-mint-500"></i>
+                                <span>Libre de cafeína</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categoría 3: Lonches y Sandwiches -->
+                    <div id="comida" class="menu-category hidden grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Comida 1 -->
+                        <div
+                            class="bg-white p-6 rounded-2xl border border-coffee-100 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-serif text-lg font-bold text-coffee-800">Torta de Milanesa</h3>
+                                    <span class="text-mint-600 font-bold text-lg">$45</span>
+                                </div>
+                                <p class="text-xs text-coffee-500 leading-relaxed">En pan caliente crujiente, milanesa
+                                    empanizada al punto, frijoles refritos, mayonesa y aderezo especial.</p>
+                            </div>
+                            <div
+                                class="mt-4 pt-3 border-t border-dashed border-coffee-100 flex items-center gap-2 text-[11px] text-coffee-400">
+                                <i data-lucide="utensils" class="w-3.5 h-3.5 text-mint-500"></i>
+                                <span>Incluida en el Combo Estudiantil</span>
+                            </div>
+                        </div>
+
+                        <!-- Comida 2 -->
+                        <div
+                            class="bg-white p-6 rounded-2xl border border-coffee-100 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-serif text-lg font-bold text-coffee-800">Torta de Jamón</h3>
+                                    <span class="text-mint-600 font-bold text-lg">$35</span>
+                                </div>
+                                <p class="text-xs text-coffee-500 leading-relaxed">Clásica y reconfortante. Jamón
+                                    selecto, queso, lechuga fresca, jitomate y toquecito de aguacate.</p>
+                            </div>
+                            <div
+                                class="mt-4 pt-3 border-t border-dashed border-coffee-100 flex items-center gap-2 text-[11px] text-coffee-400">
+                                <i data-lucide="utensils" class="w-3.5 h-3.5 text-mint-500"></i>
+                                <span>Incluida en el Combo Estudiantil</span>
+                            </div>
+                        </div>
+
+                        <!-- Comida 3 -->
+                        <div
+                            class="bg-white p-6 rounded-2xl border border-coffee-100 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-serif text-lg font-bold text-coffee-800">Sandwich de Pollo Frío</h3>
+                                    <span class="text-mint-600 font-bold text-lg">$40</span>
+                                </div>
+                                <p class="text-xs text-coffee-500 leading-relaxed">Pechuga deshebrada con suave aderezo
+                                    de finas hierbas, vegetalitos crujientes en pan integral de grano.</p>
+                            </div>
+                            <div
+                                class="mt-4 pt-3 border-t border-dashed border-coffee-100 flex items-center gap-2 text-[11px] text-coffee-400">
+                                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-mint-500"></i>
+                                <span>Opción ligera y nutritiva</span>
+                            </div>
+                        </div>
+
+                        <!-- Comida 4 -->
+                        <div
+                            class="bg-white p-6 rounded-2xl border border-coffee-100 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-serif text-lg font-bold text-coffee-800">Sandwich Queso Caliente
+                                    </h3>
+                                    <span class="text-mint-600 font-bold text-lg">$35</span>
+                                </div>
+                                <p class="text-xs text-coffee-500 leading-relaxed">Mezcla de quesos derretidos a la
+                                    plancha hasta lograr un exterior dorado y crujiente.</p>
+                            </div>
+                            <div
+                                class="mt-4 pt-3 border-t border-dashed border-coffee-100 flex items-center gap-2 text-[11px] text-coffee-400">
+                                <i data-lucide="flame" class="w-3.5 h-3.5 text-mint-500"></i>
+                                <span>Calientito y doradito</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categoría 4: Métodos de Extracción -->
+                    <div id="metodos" class="menu-category hidden grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Método V60 -->
+                        <div class="bg-white p-6 rounded-2xl border border-coffee-100 shadow-sm text-center">
+                            <div
+                                class="w-12 h-12 rounded-full bg-mint-100 text-mint-600 flex items-center justify-center mx-auto mb-3">
+                                <i data-lucide="filter" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="font-serif font-bold text-coffee-800 mb-1">V60</h3>
+                            <span class="text-mint-600 font-bold text-sm block mb-2">$45</span>
+                            <p class="text-xs text-coffee-500">Goteo en cono de papel. Resalta una taza limpia, de
+                                cuerpo ligero con notas florales y acidez brillante.</p>
+                        </div>
+
+                        <!-- Método Prensa Francesa -->
+                        <div class="bg-white p-6 rounded-2xl border border-coffee-100 shadow-sm text-center">
+                            <div
+                                class="w-12 h-12 rounded-full bg-mint-100 text-mint-600 flex items-center justify-center mx-auto mb-3">
+                                <i data-lucide="coffee" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="font-serif font-bold text-coffee-800 mb-1">Prensa Francesa</h3>
+                            <span class="text-mint-600 font-bold text-sm block mb-2">$45</span>
+                            <p class="text-xs text-coffee-500">Inmersión completa. Produce una taza de cuerpo completo,
+                                textura rica y aceites aromáticos intactos.</p>
+                        </div>
+
+                        <!-- Método Aeropress -->
+                        <div class="bg-white p-6 rounded-2xl border border-coffee-100 shadow-sm text-center">
+                            <div
+                                class="w-12 h-12 rounded-full bg-mint-100 text-mint-600 flex items-center justify-center mx-auto mb-3">
+                                <i data-lucide="gauge" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="font-serif font-bold text-coffee-800 mb-1">Aeropress</h3>
+                            <span class="text-mint-600 font-bold text-sm block mb-2">$45</span>
+                            <p class="text-xs text-coffee-500">Extracción por presión de aire. Una taza suave, de baja
+                                acidez y sabor intenso con gran dulzura.</p>
+                        </div>
+
+                        <!-- Método Chemex -->
+                        <div class="bg-white p-6 rounded-2xl border border-coffee-100 shadow-sm text-center">
+                            <div
+                                class="w-12 h-12 rounded-full bg-mint-100 text-mint-600 flex items-center justify-center mx-auto mb-3">
+                                <i data-lucide="flask-conical" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="font-serif font-bold text-coffee-800 mb-1">Chemex</h3>
+                            <span class="text-mint-600 font-bold text-sm block mb-2">$50</span>
+                            <p class="text-xs text-coffee-500">Filtro grueso de papel. Ofrece la taza más cristalina,
+                                pura y sin amargor, perfecta para cafés especiales.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Zona Estudiantil & Promoción Especial -->
+        <section id="estudiantes" class="py-20 bg-gradient-to-b from-cream to-mint-50/50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="bg-white rounded-3xl p-8 sm:p-12 border border-mint-200 shadow-lg relative overflow-hidden">
+                    <div
+                        class="absolute -right-16 -bottom-16 w-64 h-64 bg-mint-100/60 rounded-full blur-3xl pointer-events-none">
+                    </div>
+
+                    <div class="grid md:grid-cols-12 gap-8 items-center">
+
+                        <!-- Texto e Información -->
+                        <div class="md:col-span-7 space-y-5">
+                            <div
+                                class="inline-flex items-center gap-2 bg-mint-100 text-mint-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                <i data-lucide="graduation-cap" class="w-4 h-4 text-mint-600"></i>
+                                Espacio Universitario & Preparatoria
+                            </div>
+
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-coffee-800">
+                                Tu lugar ideal para concentrarte y avanzar
+                            </h2>
+
+                            <p class="text-coffee-600 text-sm sm:text-base leading-relaxed">
+                                Diseñamos Ookini pensando en tus tareas, proyectos en equipo o simplemente en ofrecerte
+                                un respiro entre clases.
+                            </p>
+
+                            <!-- Lista de ventajas -->
+                            <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                                <div class="flex items-start gap-3">
+                                    <div class="p-2 bg-mint-50 text-mint-600 rounded-lg shrink-0 mt-0.5">
+                                        <i data-lucide="wifi" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-coffee-800 text-sm">Wi-Fi de Alta Velocidad</h4>
+                                        <p class="text-xs text-coffee-500">Navega sin interrupciones ni caídas.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-3">
+                                    <div class="p-2 bg-mint-50 text-mint-600 rounded-lg shrink-0 mt-0.5">
+                                        <i data-lucide="plug" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-coffee-800 text-sm">Contactos Eléctricos</h4>
+                                        <p class="text-xs text-coffee-500">Conectores accesibles cerca de las mesas.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Destacada de Promoción -->
+                        <div class="md:col-span-5">
+                            <div
+                                class="bg-gradient-to-br from-coffee-700 to-coffee-800 text-white p-6 sm:p-8 rounded-2xl shadow-xl relative text-center border border-coffee-600">
+                                <div
+                                    class="absolute -top-3 left-1/2 -translate-x-1/2 bg-mint-500 text-white font-bold text-[11px] uppercase tracking-widest px-4 py-1 rounded-full shadow-sm">
+                                    Combo Estudiantil
+                                </div>
+
+                                <div class="pt-2 mb-4">
+                                    <div class="font-serif text-5xl font-bold text-mint-300">$55 <span
+                                            class="text-base font-sans font-normal text-cream">MXN</span></div>
+                                    <p class="text-xs text-coffee-200 mt-1">Ahorra y disfruta tu sesión de estudio</p>
+                                </div>
+
+                                <div class="space-y-3 py-4 border-y border-coffee-600/80 text-sm text-coffee-100">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <i data-lucide="check" class="w-4 h-4 text-mint-400"></i>
+                                        <span><strong>1 Torta</strong> (Milanesa o Jamón)</span>
+                                    </div>
+                                    <div class="flex items-center justify-center gap-2">
+                                        <i data-lucide="plus" class="w-3 h-3 text-coffee-400"></i>
+                                    </div>
+                                    <div class="flex items-center justify-center gap-2">
+                                        <i data-lucide="check" class="w-4 h-4 text-mint-400"></i>
+                                        <span><strong>1 Bebida</strong> (Americano o Té)</span>
+                                    </div>
+                                </div>
+
+                                <p class="text-[11px] text-coffee-300 mt-4 italic">
+                                    *Válido presentando credencial de estudiante o uniforme escolar.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Ubicación, Horarios y Contacto -->
+        <section id="contacto" class="py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+                    <!-- Información de Contacto -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div>
+                            <span class="text-mint-600 text-xs font-bold tracking-widest uppercase">Encuéntranos</span>
+                            <h2 class="font-serif text-3xl font-bold text-coffee-800 mt-1">Ubicación y Horarios</h2>
+                            <p class="text-coffee-600 text-sm mt-2">Estamos esperándote con una taza caliente en nuestro
+                                espacio del barrio.</p>
+                        </div>
+
+                        <div class="space-y-4 pt-2">
+                            <!-- Dirección -->
+                            <div class="flex items-start gap-4 p-4 rounded-xl bg-cream border border-coffee-100">
+                                <div class="p-2.5 bg-mint-500 text-white rounded-lg shrink-0">
+                                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-coffee-800 text-sm">Dirección</h4>
+                                    <p class="text-coffee-600 text-xs sm:text-sm mt-0.5">Pinos #9, Huiloapan</p>
+                                    <p class="text-coffee-400 text-[11px] mt-1">Cerca de las zonas escolares principales
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Horario -->
+                            <div class="flex items-start gap-4 p-4 rounded-xl bg-cream border border-coffee-100">
+                                <div class="p-2.5 bg-mint-500 text-white rounded-lg shrink-0">
+                                    <i data-lucide="clock" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-coffee-800 text-sm">Horarios de Atención</h4>
+                                    <p class="text-coffee-600 text-xs sm:text-sm mt-0.5">Lunes a Sábado: 7:30 AM – 8:30
+                                        PM</p>
+                                    <p class="text-coffee-500 text-xs mt-0.5">Domingos: 9:00 AM – 6:00 PM</p>
+                                </div>
+                            </div>
+
+                            <!-- WhatsApp Directo -->
+                            <div class="flex items-start gap-4 p-4 rounded-xl bg-mint-50 border border-mint-200">
+                                <div class="p-2.5 bg-mint-600 text-white rounded-lg shrink-0">
+                                    <i data-lucide="phone" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-coffee-800 text-sm">Pedidos y Dudas</h4>
+                                    <p class="text-coffee-600 text-xs sm:text-sm mt-0.5">¿Quieres pedir para llevar o
+                                        preguntar por disponibilidad?</p>
+                                    <a href="https://wa.me/522721234567?text=Hola!%20Me%20gustar%C3%ADa%20hacer%20un%20pedido%20en%20Ookini"
+                                        target="_blank"
+                                        class="inline-flex items-center gap-1.5 text-mint-700 font-bold text-xs mt-2 hover:underline">
+                                        Enviar WhatsApp directo <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mapa Simulado Interactivo / Representativo -->
+                    <div class="lg:col-span-7">
+                        <div
+                            class="bg-cream rounded-3xl p-4 border border-coffee-200/60 shadow-md relative overflow-hidden">
+                            <!-- Visual del Mapa -->
+                            <div
+                                class="w-full h-80 sm:h-96 rounded-2xl bg-slate-100 relative overflow-hidden flex flex-col items-center justify-center text-center p-6 bg-[radial-gradient(#CBD5E1_1px,transparent_1px)] [background-size:20px_20px]">
+
+                                <!-- Simulación de Calles -->
+                                <div class="absolute inset-0 opacity-20 pointer-events-none">
+                                    <div class="absolute top-1/2 left-0 w-full h-12 bg-slate-400 -translate-y-1/2">
+                                    </div>
+                                    <div class="absolute top-0 left-1/3 w-12 h-full bg-slate-400"></div>
+                                </div>
+
+                                <!-- Pin de Ubicación -->
+                                <div class="relative z-10 flex flex-col items-center animate-bounce">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-mint-500 text-white flex items-center justify-center shadow-lg border-2 border-white">
+                                        <i data-lucide="coffee" class="w-6 h-6"></i>
+                                    </div>
+                                    <div class="w-3 h-3 bg-mint-700 rounded-full blur-[2px] mt-1"></div>
+                                </div>
+
+                                <div
+                                    class="relative z-10 bg-white/95 backdrop-blur p-4 rounded-xl shadow-md border border-coffee-100 max-w-xs mt-4 text-center">
+                                    <h4 class="font-serif font-bold text-coffee-800 text-sm">Ookini Café</h4>
+                                    <p class="text-xs text-coffee-600 mt-0.5">Pinos #9, Huiloapan</p>
+                                    <a href="https://maps.google.com/?q=Pinos+9+Huiloapan" target="_blank"
+                                        class="mt-3 inline-flex items-center gap-1.5 bg-coffee-700 hover:bg-coffee-800 text-white text-xs px-4 py-2 rounded-full font-medium transition-colors">
+                                        <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
+                                        Abrir en Google Maps
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-coffee-800 text-cream py-12 border-t border-coffee-700">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-8 h-8 rounded-full bg-mint-500 text-white flex items-center justify-center font-serif text-base font-bold">
+                        大
+                    </div>
+                    <span class="font-serif text-xl font-bold tracking-wide">Ookini</span>
+                    <span class="text-xs text-coffee-300">| Huiloapan</span>
+                </div>
+
+                <p class="text-xs text-coffee-300 text-center sm:text-right">
+                    &copy; 2026 Ookini Café de Especialidad. Todos los derechos reservados.<br>
+                    <span class="text-mint-300 italic">おおきに (Muchas Gracias) por visitarnos.</span>
+                </p>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/522721234567?text=Hola!%20Me%20gustar%C3%ADa%20hacer%20un%20pedido%20en%20Ookini"
+        target="_blank"
+        class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-110 flex items-center justify-center group"
+        aria-label="Contacto por WhatsApp">
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+        <span
+            class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap text-xs font-semibold px-0 group-hover:px-2">
+            ¿Pedir por WhatsApp?
+        </span>
+    </a>
+
+    <!-- Scripts Interactivos -->
+    <script>
+        // Inicializar Iconos Lucide
+        lucide.createIcons();
+
+        // Lógica para el Menú Móvil
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Lógica de Pestañas Interactivas del Menú
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const menuCategories = document.querySelectorAll('.menu-category');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.getAttribute('data-target');
+
+                // Cambiar estado activo de botones
+                tabBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-coffee-700', 'text-white');
+                    b.classList.add('bg-white', 'text-coffee-700', 'border', 'border-coffee-200/80');
+                });
+
+                btn.classList.add('active', 'bg-coffee-700', 'text-white');
+                btn.classList.remove('bg-white', 'border');
+
+                // Mostrar/ocultar secciones
+                menuCategories.forEach(cat => {
+                    if (cat.id === target) {
+                        cat.classList.remove('hidden');
+                    } else {
+                        cat.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!--El head es información sobre la página-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ookini</title>
+    <link rel="stylesheet" href="styles.css"> <!--link conecta el html con recursos externos, llama a la hoja de estilos en este caso-->
+</head>
+
+<!--El body es lo que el usuario ve cuando entra  (HOME)-->
+
+<body>
+    <!--Cabecera de la pagina (logo, nombre, navegación...)-->
+    <header>
+        <h1>Ookini</h1>
+        <h2>Café de especialidad</h2>
+        <!--Navegación-->
+        <nav>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#metodos">Métodos</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!--Main es el contenido principal de la pagina-->
+    <main>
+        <section id="metodos">
+
+            <p>
+                Ookini significa "gracias" en Kansai, la región donde nació el método Kyoto drip. Servimos café de
+                especialidad
+                preparado con métodos lentos y con la atención que el grano merece. Lorem ipsum dolor, sit amet
+                consectetur adipisicing elit. Ad soluta explicabo culpa a! Omnis sit dolorem, deserunt suscipit rerum
+                sapiente culpa sequi veniam quae iure autem, tenetur voluptatem iusto dolorum? Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Suscipit in accusamus quaerat modi asperiores iure unde labore sequi
+                fugiat, voluptatibus adipisci magnam tempora error optio inventore impedit obcaecati cupiditate!
+                Tempora.               
+            </p>
+
+            <h2>Métodos de preparación</h2>
+            <h3 class="metodo-titulo">Método 1</h3>
+            <p>
+                Filtrado por goteo con molienda media. El agua cae despacio sobre el café durante tres minutos y
+                arrastra
+                notas
+                limpias y brillantes. Es el método más versatil de la barra y el mejor para descubrir la personalidad de
+                un
+                grano nuevo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum placeat voluptatum hic
+                autem, deserunt, sequi fugiat neque voluptas, magni omnis maiores illo ut enim vitae consequatur fugit
+                ipsam natus beatae.
+                <span class="precio">$8</span>
+            </p>
+
+            <h3 class="metodo-titulo">Método 2</h3>
+            <p>
+                Extracción en frío gota a gota durante 8 hrs. Molienda medio gruesa, agua temperatura ambiente,
+                paciencia
+                Japonesa. El
+                resultado es un café denso, dulce y con muy poca acidez. Preparado desde una noche anterior. Lorem ipsum
+                dolor sit amet, consectetur adipisicing elit. Minima repudiandae error qui ad numquam quia libero
+                dignissimos soluta officiis facilis at, quos et distinctio nemo minus expedita, ullam, rerum iusto.
+                <span class="precio">$3</span>
+            </p>
+
+            <h3 class="metodo-titulo">Método 3</h3>
+            <p>
+                Método de vacio con molienda media fina. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                error
+                aspernatur
+                autem officiis obcaecati perferendis dolorem sapiente impedit, nostrum cumque molestias ducimus
+                consectetur
+                magni cupiditate,
+                pariatur nam consequuntur dolor sit!
+                <span class="precio">$7</span>
+            </p>
+        </section>
+        <section id="reservas">
+            <p>
+                Tazas disponibles hoy: <span id="contador-tazas">50</span>
+            </p>
+            <button id="boton-reservar">
+                Reserva de tazas
+            </button>
+        </section>
+    </main>
+
+    <!--El foofter es: Información que cierra el citio (contacto, dirección, horarios...)-->
+    <footer id="contacto">
+        <img src="ookini-barra.png" alt="Barra de Ookini, café de especialidad" width="250">
+        <p>
+            Abierto todos los días, de 8:00 am a 8:00 pm.
+        </p>
+    </footer>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
